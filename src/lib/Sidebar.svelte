@@ -19,7 +19,7 @@
 
 <style lang="scss">
 	.container {
-		width: 300px;
+		width: 260px;
 		padding: 30px;
 	}
 
