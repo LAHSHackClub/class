@@ -49,16 +49,10 @@
 		background-color: var(--bg-primary);
 		border-top-left-radius: 25px;
 		flex: 1 1;
-		padding: 30px 60px;
+		padding: 30px 50px;
 
 		> div {
 			max-width: calc(100vw - 420px);
-		}
-	}
-
-	@media (min-width: 1600px) {
-		.page > div {
-			max-width: 1180px;
 		}
 	}
 </style>

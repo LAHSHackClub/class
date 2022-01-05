@@ -77,10 +77,12 @@
   }
 
   section {
+    flex: 1 1;
     display: flex;
     flex-direction: column;
     row-gap: 15px;
     min-width: 320px;
+    max-width: 400px;
 
     h2 {
       font-size: 1rem;
