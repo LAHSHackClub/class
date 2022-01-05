@@ -9,11 +9,11 @@
 	<h3>Departments</h3>
 	<div class="links">
 		<a href="/">All Classes</a>
-		<a href="">Electives</a>
-		<a href="">English</a>
-		<a href="">Fine Arts</a>
-		<a href="">Math</a>
-		<a href="">Science</a>
+		<a href="/elective">Elective</a>
+		<a href="/english">English</a>
+		<a href="/art">Fine Art</a>
+		<a href="/math">Math</a>
+		<a href="/science">Science</a>
 	</div>
 </nav>
 
