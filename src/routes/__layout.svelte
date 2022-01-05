@@ -14,18 +14,24 @@
 	:root {
 		font-family: "Poppins", sans-serif;
 		font-size: 20px;
+
+		--bg-primary: #191930;
+		--bg-secondary: #001;
+		--text-primary: #eef;
+		--text-secondary: #ccf;
+		--text-link: #0af;
 	}
 
 	body {
+		color: var(--text-primary);
 		margin: 0;
 	}
 
 	a {
-		color: #0af;
+		color: var(--text-link);
 	}
 
 	.split {
-		color: #eef;
 		display: flex;
 		width: 100%;
 		min-height: 100vh;
@@ -34,14 +40,14 @@
 	.sidebar {
 		display: flex;
 		justify-content: flex-end;
-		background-color: #001;
+		background-color: var(--bg-secondary);
 		flex: 1 1;
 	}
 
 	.page {
 		display: flex;
 		justify-content: flex-start;
-		background-color: #191930;
+		background-color: var(--bg-primary);
 		flex: 2 1;
 		padding: 30px 60px;
 

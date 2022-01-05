@@ -40,7 +40,7 @@
 		a {
 			border: 2px solid #339;
 			border-radius: 5px;
-			color: #ddf;
+			color: var(--text-secondary);
 			display: block;
 			font-size: 0.8em;
 			text-decoration: none;
@@ -50,7 +50,7 @@
 			&:hover {
 				background-color: #44c;
 				border-color: #44c;
-				color: #eef;
+				color: var(--text-primary);
 			}
 		}
 	}
