@@ -17,12 +17,21 @@
 	}
 </script>
 
-<script>
+<script lang="ts">
+  import { onMount } from "svelte";
   export let dept;
+
+  // Enables scrolling vertically
+  let el: Element;
+  function transformScroll(e: any) {
+    if (!e.deltaY || e.deltaX > 0) return;
+    e.currentTarget.scrollLeft += e.deltaY;
+  }
+  onMount(() => el.addEventListener("wheel", transformScroll));
 </script>
 
 <h1>Pathway: <span>{dept}</span></h1>
-<div class="pathway">
+<div class="pathway" bind:this="{el}">
   <section>
     <h2>Introductory</h2>
     <article>
