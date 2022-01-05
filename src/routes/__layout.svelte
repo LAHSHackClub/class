@@ -5,7 +5,9 @@
 
 <div class="split">
 	<section class="sidebar"><Sidebar /></section>
-	<section class="page"><slot /></section>
+	<section class="page">
+		<div><slot /></div>
+	</section>
 </div>
 
 <style lang="scss" global>
@@ -18,8 +20,12 @@
 		margin: 0;
 	}
 
+	a {
+		color: #0af;
+	}
+
 	.split {
-		color: #fff;
+		color: #eef;
 		display: flex;
 		width: 100%;
 		min-height: 100vh;
@@ -33,8 +39,14 @@
 	}
 
 	.page {
-		background-color: #223;
+		display: flex;
+		justify-content: flex-start;
+		background-color: #191930;
 		flex: 2 1;
 		padding: 30px 60px;
+
+		> div {
+			max-width: 900px;
+		}
 	}
 </style>
