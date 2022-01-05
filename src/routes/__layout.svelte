@@ -32,6 +32,7 @@
 	}
 
 	.split {
+		background-color: var(--bg-secondary);
 		display: flex;
 		width: 100%;
 		min-height: 100vh;
@@ -40,7 +41,6 @@
 	.sidebar {
 		display: flex;
 		justify-content: flex-end;
-		background-color: var(--bg-secondary);
 		flex: 1 1;
 	}
 
@@ -48,6 +48,7 @@
 		display: flex;
 		justify-content: flex-start;
 		background-color: var(--bg-primary);
+		border-top-left-radius: 25px;
 		flex: 2 1;
 		padding: 30px 60px;
 
