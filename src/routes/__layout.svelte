@@ -41,7 +41,6 @@
 	.sidebar {
 		display: flex;
 		justify-content: flex-end;
-		flex: 1 1;
 	}
 
 	.page {
@@ -49,11 +48,17 @@
 		justify-content: flex-start;
 		background-color: var(--bg-primary);
 		border-top-left-radius: 25px;
-		flex: 2 1;
+		flex: 1 1;
 		padding: 30px 60px;
 
 		> div {
-			max-width: 900px;
+			max-width: calc(100vw - 420px);
+		}
+	}
+
+	@media (min-width: 1600px) {
+		.page > div {
+			max-width: 1180px;
 		}
 	}
 </style>
