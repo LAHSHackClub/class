@@ -1,11 +1,12 @@
 
 <script lang="ts" context="module">
   export async function load({ params, fetch }) {
-		//const url = `https://db.lahs.club/cache/814bc6c60d0a4e13bc3f8bf33c8a3117.json`;
-		//const res = await fetch(url);
+		const url = `https://db.lahs.club/cache/9ef0d1b5876b479f97530f714f126c32.json`;
+		const res = await fetch(url);
 
-		if (params.dept) return {
+		if (res.ok && params.dept) return {
       props: {
+        classes: await res.json(),
         dept: params.dept
       }
     };
@@ -19,6 +20,7 @@
 
 <script lang="ts">
   import { onMount } from "svelte";
+  export let classes;
   export let dept;
 
   // Enables scrolling vertically
@@ -64,6 +66,12 @@
       <h3>Intro to Engineering & Design</h3>
       <p>Here is a brief description of the class that gives a general overview</p>
     </article>
+    {#each classes as c}
+    <article>
+      <h3>{c.Name}</h3>
+      <p>{c.Description}</p>
+    </article>
+    {/each}
   </section>
   <section>
     <h2>Year 3</h2>
