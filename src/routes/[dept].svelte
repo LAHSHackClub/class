@@ -36,37 +36,25 @@
 <div class="pathway" bind:this="{el}">
   <section>
     <h2>Introductory</h2>
+    {#each classes.filter(c => c.Level.name === "Introductory") as c}
     <article>
-      <h3>Intro to {dept}</h3>
-      <p>Here is a brief description of the class that gives a general overview</p>
+      <h3>{c.Name}</h3>
+      <p>{c.Description}</p>
     </article>
-    <article>
-      <h3>Intro to Engineering & Design</h3>
-      <p>Here is a brief description of the class that gives a general overview</p>
-    </article>
-    <article>
-      <h3>Intro to Engineering & Design</h3>
-      <p>Here is a brief description of the class that gives a general overview</p>
-    </article>
+    {/each}
   </section>
   <section>
     <h2>Year 1</h2>
+    {#each classes.filter(c => c.Level.name === "Year 1") as c}
     <article>
-      <h3>Intro to Engineering & Design</h3>
-      <p>Here is a brief description of the class that gives a general overview</p>
+      <h3>{c.Name}</h3>
+      <p>{c.Description}</p>
     </article>
-    <article>
-      <h3>Intro to Engineering & Design</h3>
-      <p>Here is a brief description of the class that gives a general overview</p>
-    </article>
+    {/each}
   </section>
   <section>
     <h2>Year 2</h2>
-    <article>
-      <h3>Intro to Engineering & Design</h3>
-      <p>Here is a brief description of the class that gives a general overview</p>
-    </article>
-    {#each classes as c}
+    {#each classes.filter(c => c.Level.name === "Year 2") as c}
     <article>
       <h3>{c.Name}</h3>
       <p>{c.Description}</p>
@@ -75,9 +63,21 @@
   </section>
   <section>
     <h2>Year 3</h2>
+    {#each classes.filter(c => c.Level.name === "Year 3") as c}
     <article>
-      <h3>AP Psychology</h3>
+      <h3>{c.Name}</h3>
+      <p>{c.Description}</p>
     </article>
+    {/each}
+  </section>
+  <section>
+    <h2>Year 4</h2>
+    {#each classes.filter(c => c.Level.name === "Year 4") as c}
+    <article>
+      <h3>{c.Name}</h3>
+      <p>{c.Description}</p>
+    </article>
+    {/each}
   </section>
 </div>
 
