@@ -37,7 +37,7 @@
   <section>
     <h2>{level}</h2>
     {#each classes.filter(c => c.Level.name === level) as c}
-    <Class c="{c}" cList="{classes}" />
+    <Class c="{c}" cList="{classes}" dept="{dept}" />
     {/each}
   </section>
   {/each}
