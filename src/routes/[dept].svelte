@@ -4,24 +4,24 @@
 		const url = `https://db.lahs.club/cache/9ef0d1b5876b479f97530f714f126c32.json`;
 		const res = await fetch(url);
 
-		if (res.ok && params.dept) return {
+    if (!res.ok) return { status: 500, error: new Error(`Server Error`) };
+
+    const data = await res.json();
+		if (params.dept) return {
       props: {
-        classes: await res.json(),
+        classes: data,
+        levels: data.map(i => i.Level.name).filter((v, i, a) => a.indexOf(v) === i).sort(),
         dept: params.dept
       }
     };
-
-		return {
-			status: 500,
-			error: new Error(`Server Error`)
-		};
 	}
 </script>
 
 <script lang="ts">
   import { onMount } from "svelte";
   export let classes;
-  export let dept;
+  export let levels: string[];
+  export let dept: string;
 
   // Enables scrolling vertically
   let el: Element;
@@ -34,51 +34,18 @@
 
 <h1>Pathway: <span>{dept}</span></h1>
 <div class="pathway" bind:this="{el}">
+  {#each levels as level}
   <section>
-    <h2>Introductory</h2>
-    {#each classes.filter(c => c.Level.name === "Introductory") as c}
+    <h2>{level}</h2>
+    {#each classes.filter(c => c.Level.name === level) as c}
     <article>
       <h3>{c.Name}</h3>
       <p>{c.Description}</p>
+      <p>{JSON.stringify(c.Prerequisite)}</p>
     </article>
     {/each}
   </section>
-  <section>
-    <h2>Year 1</h2>
-    {#each classes.filter(c => c.Level.name === "Year 1") as c}
-    <article>
-      <h3>{c.Name}</h3>
-      <p>{c.Description}</p>
-    </article>
-    {/each}
-  </section>
-  <section>
-    <h2>Year 2</h2>
-    {#each classes.filter(c => c.Level.name === "Year 2") as c}
-    <article>
-      <h3>{c.Name}</h3>
-      <p>{c.Description}</p>
-    </article>
-    {/each}
-  </section>
-  <section>
-    <h2>Year 3</h2>
-    {#each classes.filter(c => c.Level.name === "Year 3") as c}
-    <article>
-      <h3>{c.Name}</h3>
-      <p>{c.Description}</p>
-    </article>
-    {/each}
-  </section>
-  <section>
-    <h2>Year 4</h2>
-    {#each classes.filter(c => c.Level.name === "Year 4") as c}
-    <article>
-      <h3>{c.Name}</h3>
-      <p>{c.Description}</p>
-    </article>
-    {/each}
-  </section>
+  {/each}
 </div>
 
 <style lang="scss">
