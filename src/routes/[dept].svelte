@@ -2,7 +2,7 @@
 <script lang="ts" context="module">
   import { getDatabase } from "../util/pathway";
   
-  export async function load({ params, fetch }) {
+  export async function load({ params }) {
     const { ok, data } = await getDatabase(params.dept);
     if (!ok) return { status: 500, error: new Error(`Server Error`) };
 		return {
