@@ -22,6 +22,39 @@
   export let levels: string[];
   export let dept: string;
 
+  let highlights: { [id: string]: number } = {};
+  function selected(e: any) {
+    highlights = {};
+    const x = classes.find(c => c.id === e.detail.id);
+
+    // Highlight futures; classes with this one as a prereq
+    classes.filter(c => {
+      if (c.Prerequisite?.length < 1) return false;
+      if (c.Prerequisite.some(p => p.id === e.detail.id))
+        highlights[c.id] = 3;
+    });
+
+    // Highlight intro classes
+    classes.filter(c => {
+      if (c.Level.name === "Year 1" ||
+          c.Level.name === "Introductory" &&
+          (c.Prerequisite?.length > 0 &&
+          c.Prerequisite.some(p => p.id !== e.detail.id)))
+        highlights[c.id] = 2;
+    });
+
+    // Highlight shared prereq classes (sidesteps)
+    classes.filter(c => {
+      if (c.Prerequisite?.length < 1) return false;
+      if (c.Prerequisite.every(l => x.Prerequisite.some(p => p.id === l.id)))
+        highlights[c.id] = 3;
+    });
+
+    // Highlight all prereq classes
+    if (x.Prerequisite?.length > 0)
+      x.Prerequisite.forEach(p => { highlights[p.id] = 1; });
+  }
+
   // Enables scrolling vertically
   let el: Element;
   function transformScroll(e: any) {
@@ -37,7 +70,9 @@
   <section>
     <h2>{level}</h2>
     {#each classes.filter(c => c.Level.name === level) as c}
-    <Class c="{c}" cList="{classes}" dept="{dept}" />
+    <Class
+      c="{c}" cList="{classes}" dept="{dept}"
+      highlight="{highlights[c.id]}" on:selected="{selected}" />
     {/each}
   </section>
   {/each}
