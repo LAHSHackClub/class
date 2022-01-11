@@ -18,7 +18,7 @@ export function generateHighlighter(classes: any[], targetId: string) {
 
   // Highlight shared prereq classes (sidesteps)
   classes.filter(c => {
-    if (c.Prerequisite?.length < 1) return false;
+    if (c.Prerequisite?.length < 1 || x.Prerequisite?.length < 1) return false;
     if (c.Prerequisite.every(l => x.Prerequisite.some(p => p.id === l.id)))
       highlights[c.id] = 3;
   });
