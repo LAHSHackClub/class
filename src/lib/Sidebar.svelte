@@ -12,7 +12,7 @@
 		<h2>LAHS Classes</h2>
 		<IconButton icon="menu" on:click="{click}" />
 	</div>
-	<p class="sublinks">about ⋄ lahs.+ ⋄ <a href="/privacy">privacy</a></p>
+	<p class="sublinks"><a href="/install">install app</a> ⋄ lahs.+ ⋄ <a href="/privacy">privacy</a></p>
 	<h3>Saved Lists</h3>
 	<div class="links">
 		<NavLink href="/" icon="bookmarks">Custom List</NavLink>
