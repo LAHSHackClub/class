@@ -1,6 +1,6 @@
 
 <script lang="ts" context="module">
-  import { getDatabase } from "../util/pathway";
+  import { getDatabase } from "../util/database";
   
   export async function load({ params }) {
     const { ok, data } = await getDatabase(params.dept);
@@ -17,39 +17,16 @@
 
 <script lang="ts">
   import Class from "$lib/Class.svelte";
+  import { generateHighlighter } from "../util/highlight";
   import { onMount } from "svelte";
   export let classes;
   export let levels: string[];
   export let dept: string;
 
+  // Enables dynamic highlighting of classes
   let highlights: { [id: string]: number } = {};
-  function selected(e: any) {
-    highlights = {};
-    const x = classes.find(c => c.id === e.detail.id);
-
-    // Highlight futures; classes with this one as a prereq
-    classes.filter(c => {
-      if (c.Prerequisite?.length < 1) return false;
-      if (c.Prerequisite.some(p => p.id === e.detail.id))
-        highlights[c.id] = 3;
-    });
-
-    // Highlight classes without prereqs
-    classes.filter(c => {
-      if (c.Prerequisite?.length < 1)
-        highlights[c.id] = 2;
-    });
-
-    // Highlight shared prereq classes (sidesteps)
-    classes.filter(c => {
-      if (c.Prerequisite?.length < 1) return false;
-      if (c.Prerequisite.every(l => x.Prerequisite.some(p => p.id === l.id)))
-        highlights[c.id] = 3;
-    });
-
-    // Highlight all prereq classes
-    if (x.Prerequisite?.length > 0)
-      x.Prerequisite.forEach(p => { highlights[p.id] = 1; });
+  function generateHighlight(e: CustomEvent) {
+    highlights = generateHighlighter(classes, e.detail.id)
   }
 
   // Enables scrolling vertically
@@ -79,7 +56,7 @@
     {#each classes.filter(c => c.Level.name === level) as c}
     <Class
       c="{c}" cList="{classes}" dept="{dept}"
-      highlight="{highlights[c.id]}" on:selected="{selected}" />
+      highlight="{highlights[c.id]}" on:selected="{generateHighlight}" />
     {/each}
   </section>
   {/each}
