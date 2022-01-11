@@ -34,12 +34,9 @@
         highlights[c.id] = 3;
     });
 
-    // Highlight intro classes
+    // Highlight classes without prereqs
     classes.filter(c => {
-      if (c.Level.name === "Year 1" ||
-          c.Level.name === "Introductory" &&
-          (c.Prerequisite?.length > 0 &&
-          c.Prerequisite.some(p => p.id !== e.detail.id)))
+      if (c.Prerequisite?.length < 1)
         highlights[c.id] = 2;
     });
 
