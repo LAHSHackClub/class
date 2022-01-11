@@ -14,7 +14,10 @@
 
 <script lang="ts">
   import Class from "$lib/Class.svelte";
+  import PathwayHeader from "$lib/PathwayHeader.svelte";
+  import PathwayKey from "$lib/PathwayKey.svelte";
   import { generateHighlighter } from "../util/highlight";
+  
   export let classes: any[];
   export let levels: string[];
   export let dept: string;
@@ -26,23 +29,8 @@
   }
 </script>
 
-<header>
-  <h1>Pathway: <span>{dept}</span></h1>
-  <button>
-    <svg><use xlink:href="/icon/bootstrap.svg#text" /></svg>
-    Pathway Description
-  </button>
-  <a href="">
-    <svg><use xlink:href="/icon/bootstrap.svg#play" /></svg>
-    Pathway Video
-  </a>
-</header>
-<ul class="key">
-  <li data-color="selected">Selected Class</li>
-  <li data-color="prerequisite">Prerequisite</li>
-  <li data-color="future">Recommended Follow-Up</li>
-  <li data-color="future-border">Available Follow-Up</li>
-</ul>
+<PathwayHeader dept={dept} />
+<PathwayKey />
 <hr>
 <div class="pathway">
   {#each levels as level}
@@ -58,91 +46,10 @@
 </div>
 
 <style lang="scss">
-  header {
-    display: flex;
-    align-items: center;
-    column-gap: 15px;
-    margin-bottom: 15px;
-
-    h1 {
-      flex: 1 1;
-    }
-
-    h1 span {
-      text-transform: uppercase;
-    }
-
-    a, button {
-      background-color: var(--interactable-secondary);
-      border-radius: 5px;
-      border: none;
-      color: #fff;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      column-gap: 10px;
-      font-family: inherit;
-      font-size: 0.6rem;
-      font-weight: bold;
-      text-decoration: none;
-      text-transform: uppercase;
-      padding: 8px 16px;
-      transition-duration: 0.2s;
-
-      &:hover, &:focus {
-        background-color: var(--interactable-primary);
-      }
-
-      svg {
-        height: 14px;
-        width: 14px;
-      }
-    }
-  }
-
   hr {
     border: none;
     border-bottom: 3px solid var(--bg-secondary);
     margin: 25px 0;
-  }
-
-  .key {
-    color: var(--text-secondary);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    column-gap: 15px;
-    font-size: 0.8rem;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-
-    li {
-      display: flex;
-      align-items: center;
-    }
-    li::before {
-      box-sizing: border-box;
-      content: "";
-      display: inline-block;
-      height: 20px;
-      width: 20px;
-      background-color: var(--bg-secondary);
-      border-radius: 5px;
-      margin-right: 10px;
-    }
-    li[data-color="selected"]::before {
-      background-color: var(--selected);
-    }
-    li[data-color="prerequisite"]::before {
-      background-color: var(--prerequisite);
-    }
-    li[data-color="future"]::before {
-      background-color: var(--future);
-    }
-    li[data-color="future-border"]::before {
-      border: 3px solid var(--future);
-    }
   }
 
   .pathway {
