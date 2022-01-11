@@ -67,7 +67,7 @@
     }
 
     a, button {
-      background-color: #35c;
+      background-color: var(--interactable-secondary);
       border-radius: 5px;
       border: none;
       color: #fff;
@@ -82,7 +82,7 @@
 
   hr {
     border: none;
-    border-bottom: 3px solid #34b;
+    border-bottom: 3px solid var(--bg-secondary);
     margin: 25px 0;
   }
 

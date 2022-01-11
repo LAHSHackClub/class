@@ -25,11 +25,19 @@
 		font-family: "Poppins", sans-serif;
 		font-size: 20px;
 
-		--bg-primary: #191930;
-		--bg-secondary: #001;
-		--text-primary: #eef;
-		--text-secondary: #ccf;
-		--text-link: #0af;
+		--bg-primary: #345;
+		--bg-secondary: #234;
+		
+		--interactable-primary: #0bd;
+		--interactable-secondary: #37a;
+
+		--text-primary: #fff;
+		--text-secondary: #dde;
+		--text-link: #0df;
+
+		--selected: #09c;
+		--future: #0a8;
+		--prerequisite: #a35;
 	}
 
 	body {

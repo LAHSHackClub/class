@@ -70,9 +70,10 @@
 		display: flex;
 		flex-direction: column;
 		row-gap: 10px;
+		margin-top: 15px;
 
 		a {
-			border: 2px solid #44c;
+			border: 2px solid var(--interactable-secondary);
 			border-radius: 5px;
 			color: var(--text-primary);
 			display: flex;
@@ -84,8 +85,8 @@
 			transition-duration: 0.1s;
 
 			&:hover {
-				background-color: #44c;
-				border-color: #44c;
+				background-color: var(--interactable-primary);
+				border-color: var(--interactable-primary);
 				color: var(--text-primary);
 			}
 

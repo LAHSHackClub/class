@@ -31,12 +31,12 @@
     display: none;
   }
   input:checked + article {
-    background-color: #23a;
-    border-color: #23a;
+    background-color: var(--selected);
+    border-color: var(--selected);
   }
 
   article {
-    background-color: #223;
+    background-color: var(--bg-secondary);
     border: 3px solid transparent;
     border-radius: 5px;
     cursor: pointer;
@@ -44,18 +44,18 @@
     font-size: 0.7em;
     transition-duration: 0.2s;
 
-    &:hover {
-      border-color: #23a;
-    }
-
     &.hl-1 {
-      background-color: #c63;
+      background-color: var(--prerequisite);
     }
     &.hl-2 {
-      border-color: #3a8;
+      border-color: var(--future);
     }
     &.hl-3 {
-      background-color: #3a8;
+      background-color: var(--future);
+    }
+
+    &:hover {
+      border-color: var(--selected);
     }
 
     h3 {
