@@ -38,16 +38,17 @@
   onMount(() => el.addEventListener("wheel", transformScroll));
 </script>
 
-<h1>Pathway: <span>{dept}</span></h1>
-<div class="description">
-  <ul class="key">
-    <li>Selected Class</li>
-    <li>Prerequisite Class</li>
-    <li>Recommended Future Class</li>
-    <li>Available Future Class</li>
-  </ul>
-  <p>Pathway description, key, and other media</p>
-</div>
+<header>
+  <h1>Pathway: <span>{dept}</span></h1>
+  <button>Pathway Description</button>
+  <a href="">Pathway Video</a>
+</header>
+<ul class="key">
+  <li>Selected</li>
+  <li>Prerequisite</li>
+  <li>Recommended Follow-Up</li>
+  <li>Available Follow-Up</li>
+</ul>
 <hr>
 <div class="pathway" bind:this="{el}">
   {#each levels as level}
@@ -63,26 +64,48 @@
 </div>
 
 <style lang="scss">
-  h1 span {
-    text-transform: uppercase;
+  header {
+    display: flex;
+    align-items: center;
+    column-gap: 15px;
+
+    h1 {
+      flex: 1 1;
+    }
+
+    h1 span {
+      text-transform: uppercase;
+    }
+
+    a, button {
+      background-color: #35c;
+      border-radius: 5px;
+      border: none;
+      color: #fff;
+      font-family: inherit;
+      font-size: 0.6rem;
+      font-weight: bold;
+      text-decoration: none;
+      text-transform: uppercase;
+      padding: 8px 20px;
+    }
   }
 
   hr {
     border: none;
     border-bottom: 3px solid #34b;
-    margin: 35px 0;
+    margin: 25px 0;
   }
 
-  .description {
+  .key {
     display: flex;
-    flex-direction: row;
-    font-size: 0.8em;
-    line-height: 2;
-
-    > * {
-      flex: 1 1;
-      margin: 0;
-    }
+    align-items: center;
+    justify-content: space-between;
+    column-gap: 15px;
+    font-size: 0.8rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
   }
 
   .pathway {
