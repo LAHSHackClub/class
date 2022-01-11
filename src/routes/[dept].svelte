@@ -19,7 +19,7 @@
   import Class from "$lib/Class.svelte";
   import { generateHighlighter } from "../util/highlight";
   import { onMount } from "svelte";
-  export let classes;
+  export let classes: any[];
   export let levels: string[];
   export let dept: string;
 
@@ -77,9 +77,11 @@
     display: flex;
     flex-direction: row;
     font-size: 0.8em;
+    line-height: 2;
 
     > * {
       flex: 1 1;
+      margin: 0;
     }
   }
 

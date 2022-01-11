@@ -1,5 +1,6 @@
 
 <script lang="ts">
+	import IconButton from "$lib/IconButton.svelte";
 	import { createEventDispatcher } from "svelte";
 	const dispatch = createEventDispatcher();
 	const click = (e: MouseEvent) => dispatch("toggle", e);
@@ -8,9 +9,7 @@
 <nav class="container">
 	<div class="menu">
 		<h2>LAHS Classes</h2>
-		<button on:click="{click}">
-			<svg><use xlink:href="/icon/bootstrap.svg#menu" /></svg>
-		</button>
+		<IconButton icon="menu" on:click="{click}" />
 	</div>
 	<p class="sublinks">about ⋄ lahs.+ ⋄ <a href="/privacy">privacy</a></p>
 	<h3>Saved Lists</h3>
@@ -55,23 +54,6 @@
 			display: flex;
 			justify-content: space-between;
 			align-items: center;
-		}
-
-		.menu button {
-			background: none;
-			border: none;
-			border-radius: 5px;
-			color: #fff;
-			cursor: pointer;
-			display: grid;
-			place-items: center;
-			height: 40px;
-			width: 40px;
-		}
-
-		.menu button svg {
-			height: 100%;
-			width: 100%;
 		}
 	}
 
