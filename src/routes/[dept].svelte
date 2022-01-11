@@ -56,6 +56,7 @@
     display: flex;
     align-items: center;
     column-gap: 15px;
+    margin-bottom: 15px;
 
     h1 {
       flex: 1 1;

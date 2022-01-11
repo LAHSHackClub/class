@@ -45,6 +45,10 @@
 		margin: 0;
 	}
 
+	h1, h2 {
+		margin: 10px 0;
+	}
+
 	a {
 		color: var(--text-link);
 	}
