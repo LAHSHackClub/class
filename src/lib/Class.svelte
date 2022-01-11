@@ -44,6 +44,9 @@
     font-size: 0.7em;
     transition-duration: 0.2s;
 
+    &.hl-1, &.hl-2, &.hl-3 {
+      color: var(--text-primary);
+    }
     &.hl-1 {
       background-color: var(--prerequisite);
     }
@@ -64,6 +67,7 @@
     }
     p {
       color: var(--text-secondary);
+      font-size: 0.85em;
       margin-top: 5px;
       margin-bottom: 0;
 

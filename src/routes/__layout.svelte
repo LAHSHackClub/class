@@ -68,7 +68,11 @@
 		background-color: var(--bg-primary);
 		border-top-left-radius: 25px;
 		flex: 1 1;
+		max-height: 100vh;
+		overflow-y: auto;
 		padding: 30px 50px;
+		position: sticky;
+		top: 0;
 
 		> div {
 			max-width: calc(100vw - 420px);
