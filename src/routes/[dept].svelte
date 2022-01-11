@@ -5,12 +5,9 @@
   export async function load({ params }) {
     const { ok, data } = await getDatabase(params.dept);
     if (!ok) return { status: 500, error: new Error(`Server Error`) };
+    const uniqueLevels = data.map(i => i.Level.name).filter((v, i, a) => a.indexOf(v) === i).sort();
 		return {
-      props: {
-        classes: data,
-        levels: data.map(i => i.Level.name).filter((v, i, a) => a.indexOf(v) === i).sort(),
-        dept: params.dept
-      }
+      props: { classes: data, levels: uniqueLevels, dept: params.dept }
     };
 	}
 </script>
@@ -28,14 +25,6 @@
   function generateHighlight(e: CustomEvent) {
     highlights = generateHighlighter(classes, e.detail.id)
   }
-
-  // Enables scrolling vertically
-  let el: Element;
-  function transformScroll(e: any) {
-    if (!e.deltaY || e.deltaX > 0) return;
-    e.currentTarget.scrollLeft += e.deltaY;
-  }
-  onMount(() => el.addEventListener("wheel", transformScroll));
 </script>
 
 <header>
@@ -50,7 +39,7 @@
   <li>Available Follow-Up</li>
 </ul>
 <hr>
-<div class="pathway" bind:this="{el}">
+<div class="pathway">
   {#each levels as level}
   <section>
     <h2>{level}</h2>
