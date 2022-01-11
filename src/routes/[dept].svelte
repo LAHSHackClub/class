@@ -15,7 +15,6 @@
 <script lang="ts">
   import Class from "$lib/Class.svelte";
   import { generateHighlighter } from "../util/highlight";
-  import { onMount } from "svelte";
   export let classes: any[];
   export let levels: string[];
   export let dept: string;
@@ -71,12 +70,18 @@
       border-radius: 5px;
       border: none;
       color: #fff;
+      cursor: pointer;
       font-family: inherit;
       font-size: 0.6rem;
       font-weight: bold;
       text-decoration: none;
       text-transform: uppercase;
       padding: 8px 20px;
+      transition-duration: 0.2s;
+
+      &:hover, &:focus {
+        background-color: var(--interactable-primary);
+      }
     }
   }
 
