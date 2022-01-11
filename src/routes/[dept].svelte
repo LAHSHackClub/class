@@ -65,6 +65,16 @@
 </script>
 
 <h1>Pathway: <span>{dept}</span></h1>
+<div class="description">
+  <ul class="key">
+    <li>Selected Class</li>
+    <li>Prerequisite Class</li>
+    <li>Recommended Future Class</li>
+    <li>Available Future Class</li>
+  </ul>
+  <p>Pathway description, key, and other media</p>
+</div>
+<hr>
 <div class="pathway" bind:this="{el}">
   {#each levels as level}
   <section>
@@ -81,6 +91,22 @@
 <style lang="scss">
   h1 span {
     text-transform: uppercase;
+  }
+
+  hr {
+    border: none;
+    border-bottom: 3px solid #34b;
+    margin: 35px 0;
+  }
+
+  .description {
+    display: flex;
+    flex-direction: row;
+    font-size: 0.8em;
+
+    > * {
+      flex: 1 1;
+    }
   }
 
   .pathway {
