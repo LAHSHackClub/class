@@ -4,9 +4,18 @@
 	import NavLink from "$lib/NavLink.svelte";
 	import { createEventDispatcher } from "svelte";
 	const dispatch = createEventDispatcher();
-	const click = (e: MouseEvent) => dispatch("toggle", e);
+	const click = (e: MouseEvent) => {
+		dispatch("toggle", e); toggle = !toggle; }
+	let toggle = false;
 </script>
 
+{#if toggle}
+<div class="nav-hidden">
+	<div class="menu">
+		<IconButton icon="menu" on:click="{click}" />
+	</div>
+</div>
+{:else}
 <nav class="container">
 	<div class="menu">
 		<h2>LAHS Classes</h2>
@@ -27,8 +36,23 @@
 		<NavLink href="/science" icon="lightbulb">Science</NavLink>
 	</div>
 </nav>
+{/if}
 
 <style lang="scss">
+	.nav-hidden {
+		background-color: var(--bg-primary);
+		width: 80px;
+
+		.menu {
+			background-color: var(--bg-secondary);
+			border-bottom-right-radius: 25px;
+			display: grid;
+			place-items: center;
+			padding-top: 32px;
+			height: 80px;
+		}
+	}
+
 	.container {
 		width: 260px;
 		padding: 30px;

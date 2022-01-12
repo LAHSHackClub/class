@@ -2,18 +2,13 @@
 <script lang="ts">
 	import Sidebar from "$lib/Sidebar.svelte";
 
-	let splitEl: HTMLElement;
 	let isOpen = false;
 	function toggle() {
 		isOpen = !isOpen;
-			setTimeout(() => {
-				console.log("thing")
-			splitEl.scroll({left: 200, behavior: "smooth"});
-			}, 1000);
 	}
 </script>
 
-<div class="split" bind:this="{splitEl}">
+<div class="split" class:full="{isOpen}">
 	<section class="sidebar"><Sidebar on:toggle="{toggle}" /></section>
 	<section class="page" class:full="{isOpen}">
 		<div><slot /></div>
@@ -74,20 +69,15 @@
 		flex: 1 1;
 		max-height: 100vh;
 		overflow-y: auto;
-		padding: 30px 50px;
+		padding: 30px 40px;
 		position: sticky;
 		top: 0;
 
 		> div {
-			max-width: calc(100vw - 420px);
-		}
-
-		&.full {
-			min-width: 100vw;
-			width: 100vw;
+			max-width: calc(100vw - 400px);
 		}
 		&.full > div {
-			max-width: 100%;
+			max-width: calc(100vw - 160px);
 		}
 	}
 </style>
