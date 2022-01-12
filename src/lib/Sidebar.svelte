@@ -48,7 +48,7 @@
 			border-bottom-right-radius: 25px;
 			display: grid;
 			place-items: center;
-			padding-top: 32px;
+			padding-top: 22px;
 			height: 80px;
 		}
 	}
