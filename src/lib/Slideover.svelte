@@ -11,7 +11,7 @@
 
 {#if $slideoverContent}
 <div class="cover" transition:fade>
-  <section class="slideover" transition:fly="{{x: -100}}">
+  <section class="slideover" transition:fly="{{x: -40}}">
     <span class="close">
       <IconButton icon="play" on:click="{closeSlideover}" />
     </span>
