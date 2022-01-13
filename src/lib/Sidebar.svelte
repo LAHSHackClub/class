@@ -22,9 +22,9 @@
 		<IconButton icon="menu" on:click="{click}" />
 	</div>
 	<p class="sublinks"><a href="/install">install app</a> ⋄ lahs.+ ⋄ <a href="/privacy">privacy</a></p>
-	<h3>Saved Lists</h3>
+	<hr>
 	<div class="links">
-		<NavLink href="/" icon="bookmarks">Custom List</NavLink>
+		<NavLink href="/saved" icon="bookmarks">Saved Classes</NavLink>
 	</div>
 	<h3>Departments</h3>
 	<div class="links">
@@ -75,6 +75,12 @@
 		margin-bottom: 10px;
 	}
 
+  hr {
+    border: none;
+    border-bottom: 3px solid var(--bg-primary);
+    margin: 25px 0;
+  }
+	
 	.links {
 		display: flex;
 		flex-direction: column;
