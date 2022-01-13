@@ -41,15 +41,15 @@
 <style lang="scss">
 	.nav-hidden {
 		background-color: var(--bg-primary);
-		width: 80px;
+		width: 60px;
 
 		.menu {
 			background-color: var(--bg-secondary);
-			border-bottom-right-radius: 25px;
+			border-bottom-right-radius: 15px;
 			display: grid;
 			place-items: center;
-			padding-top: 22px;
-			height: 80px;
+			padding-top: 32px;
+			height: 60px;
 		}
 	}
 
