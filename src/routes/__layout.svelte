@@ -74,10 +74,10 @@
 		top: 0;
 
 		> div {
-			max-width: calc(100vw - 400px);
+			max-width: calc(100vw - 420px);
 		}
 		&.full > div {
-			max-width: calc(100vw - 160px);
+			max-width: calc(100vw - 180px);
 		}
 	}
 </style>
