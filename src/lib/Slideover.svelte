@@ -7,11 +7,14 @@
   function closeSlideover() {
     $slideoverContent = null;
   }
+  function stopProp(e) {
+    e.stopPropagation();
+  }
 </script>
 
 {#if $slideoverContent}
-<div class="cover" transition:fade>
-  <section class="slideover" transition:fly="{{x: -40}}">
+<div class="cover" transition:fade on:click="{closeSlideover}">
+  <section class="slideover" transition:fly="{{duration:600,x: -320}}" on:click="{stopProp}">
     <span class="close">
       <IconButton icon="play" on:click="{closeSlideover}" />
     </span>
