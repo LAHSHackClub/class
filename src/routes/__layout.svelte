@@ -1,6 +1,7 @@
 
 <script lang="ts">
 	import Sidebar from "$lib/Sidebar.svelte";
+	import Slideover from "$lib/Slideover.svelte";
 
 	let isOpen = false;
 	function toggle() {
@@ -9,6 +10,7 @@
 </script>
 
 <div class="split" class:full="{isOpen}">
+	<Slideover />
 	<section class="sidebar"><Sidebar on:toggle="{toggle}" /></section>
 	<section class="page" class:full="{isOpen}">
 		<div><slot /></div>

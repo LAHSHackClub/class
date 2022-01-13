@@ -1,18 +1,22 @@
 
 <script lang="ts">
+  import PathwayOverview from "./PathwayOverview.svelte";
+  import { slideoverContent } from "../util/slideover";
   export let dept: string;
+
+  function openSlideover() {
+    $slideoverContent = PathwayOverview;
+  }
 </script>
 
 <header>
   <h1>Pathway: <span>{dept}</span></h1>
-  <button>
+  <button on:click="{openSlideover}">
     <svg><use xlink:href="/icon/bootstrap.svg#text" /></svg>
-    Pathway Description
-  </button>
-  <a href="">
     <svg><use xlink:href="/icon/bootstrap.svg#play" /></svg>
-    Pathway Video
-  </a>
+    <span>|</span>
+    Pathway Overview
+  </button>
 </header>
 
 <style lang="scss">
