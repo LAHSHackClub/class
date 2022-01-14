@@ -1,6 +1,7 @@
 
 <script lang="ts">
   import { createEventDispatcher } from "svelte";
+  import { popoverContent } from "../util/popover";
   export let c: any;
   export let cList: any[];
   export let dept: string;
@@ -12,7 +13,10 @@
     dispatch("selected", { id: c.id });
   }
   function alerter() {
-    alert("You clicked on " + c.Name);
+    popoverContent.set({
+      message: "Saved " + c.Name,
+      icon: "bookmarkcheck"
+    });
   }
 </script>
 
@@ -47,6 +51,7 @@
     font-size: 0.7em;
     transition-duration: 0.2s;
     user-select: none;
+    -webkit-user-select: none;
 
     &.hl-1, &.hl-2, &.hl-3 {
       color: var(--text-primary);
