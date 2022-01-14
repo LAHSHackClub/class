@@ -24,11 +24,15 @@
 <h1>All Classes</h1>
 <input type="text" name="" id="" placeholder="Search classes" bind:value="{searchQuery}">
 <hr>
+{#if classMatch(searchQuery).length > 0}
 <section>
   {#each classMatch(searchQuery) as c}
   <Class c="{c}" cList="{classes}" />
   {/each}
 </section>
+{:else}
+<p>No classes found!</p>
+{/if}
 
 <style lang="scss">
   input {
@@ -57,5 +61,6 @@
     column-gap: 20px;
     row-gap: 20px;
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    padding-bottom: 100px;
   }
 </style>
