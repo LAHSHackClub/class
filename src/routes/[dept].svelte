@@ -27,6 +27,12 @@
   function generateHighlight(e: CustomEvent) {
     highlights = generateHighlighter(classes, e.detail.id)
   }
+
+  function classesFromLevel(level: string) {
+    return classes
+      .filter(c => c.Level.name === level)
+      .sort((a, b) => a.Name.localeCompare(b.Name));
+  }
 </script>
 
 <PathwayHeader dept={dept} />
@@ -36,7 +42,7 @@
   {#each levels as level}
   <section>
     <h2>{level}</h2>
-    {#each classes.filter(c => c.Level.name === level) as c}
+    {#each classesFromLevel(level) as c}
     <Class
       c="{c}" cList="{classes}" dept="{dept}"
       highlight="{highlights[c.id]}" on:selected="{generateHighlight}" />
