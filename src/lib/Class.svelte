@@ -6,8 +6,8 @@
 
   export let c: any;
   export let cList: any[];
-  export let dept: string;
-  export let highlight: number;
+  export let dept: string = "default";
+  export let highlight: number = 0;
 
   $: isBookmarked = $bookmarks.some(b => b === c.id);
   $: prereqs = c.Prerequisite ? c.Prerequisite.map(p => cList.find(c => c.id === p.id)) : [];
@@ -85,6 +85,10 @@
       justify-content: space-between;
       margin: 0;
       text-transform: uppercase;
+
+      span {
+        flex: 1 1;
+      }
 
       svg {
         padding: 3px 0;

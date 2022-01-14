@@ -78,6 +78,7 @@
 		top: 0;
 
 		> div {
+			width: 100%;
 			max-width: calc(100vw - 420px);
 		}
 		&.full > div {
