@@ -11,9 +11,12 @@
   function selected() {
     dispatch("selected", { id: c.id });
   }
+  function alerter() {
+    alert("You clicked on " + c.Name);
+  }
 </script>
 
-<label for="{c.id}">
+<label for="{c.id}" on:dblclick="{alerter}">
   <input id="{c.id}" name="{dept}" type="radio" on:click="{selected}">
   <article class="hl-{highlight}">
     <h3>{c.Name}</h3>
@@ -43,6 +46,7 @@
     padding: 15px 20px;
     font-size: 0.7em;
     transition-duration: 0.2s;
+    user-select: none;
 
     &.hl-1, &.hl-2, &.hl-3 {
       color: var(--text-primary);

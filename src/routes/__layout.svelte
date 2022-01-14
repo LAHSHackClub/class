@@ -1,5 +1,6 @@
 
 <script lang="ts">
+	import Popover from "$lib/Popover.svelte";
 	import Sidebar from "$lib/Sidebar.svelte";
 	import Slideover from "$lib/Slideover.svelte";
 
@@ -10,6 +11,7 @@
 </script>
 
 <div class="split" class:full="{isOpen}">
+	<Popover />
 	<Slideover />
 	<section class="sidebar"><Sidebar on:toggle="{toggle}" /></section>
 	<section class="page" class:full="{isOpen}">
