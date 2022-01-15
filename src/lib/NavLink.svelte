@@ -19,7 +19,7 @@
     column-gap: 10px;
     font-size: 0.8em;
     text-decoration: none;
-    padding: 8px 20px;
+    padding: 6px 20px;
     transition-duration: 0.1s;
 
     &:hover {
