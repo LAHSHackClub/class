@@ -13,8 +13,8 @@
   <li>Click on attached media to view in a larger form.</li>
 </ol>
 <h4>Just a Recommendation</h4>
-<p>The "Year" number doesn't mean a grade level. It indicates how much experience in a pathway is recommended. For example, anyone can take a Intro or Year 1 class, but it is recommended that you have two years of experience (and the prerequisites) to take a year 3 class.</p>
-<p>Prerequisite classes are only recommendations, and you may be able to skip them with teacher approval. Talk to your teacher or counselor for more details. Additionally, some classes will highlight multiple prerequisite classes, but only one prerequisite is needed to take that class.</p>
+<p>The "Year" number doesn't mean a grade level. It indicates how much experience in a pathway is recommended. For example, anyone can take a Intro or Year 1 class, but it is recommended that you have two years of experience (and at least one of the highlighted prior classes) to take a year 3 class.</p>
+<p>Some classes will have several "Recommended Before" courses highlighted. You only need at least one class to proceed, not all of the ones that are highlighted (for example, you don't need to take Drawing III, Photo II, and Digital Photo to take AP Studio Art - just one of them is fine!). LAHS classes are open enrollment so you may be able to skip levels with teacher approval. Talk to your teacher or counselor for more details.</p>
 <hr class="short">
 <h3>Need more help?</h3>
 <p>Your teachers and counselors are a great resource for helping you choose your next courses.</p>

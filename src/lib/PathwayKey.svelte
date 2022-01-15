@@ -1,9 +1,9 @@
 
 <ul class="key">
   <li data-color="selected">Selected Class</li>
-  <li data-color="prerequisite">Prerequisite</li>
-  <li data-color="future">Recommended Follow-Up</li>
-  <li data-color="future-border">Available Follow-Up</li>
+  <li data-color="prerequisite">Recommended Before</li>
+  <li data-color="future">Recommended After</li>
+  <li data-color="future-border">Available After</li>
 </ul>
 
 <style lang="scss">

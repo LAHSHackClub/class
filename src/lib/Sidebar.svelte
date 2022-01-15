@@ -21,10 +21,10 @@
 		<h2>LAHS Classes</h2>
 		<IconButton icon="menu" on:click="{click}" />
 	</div>
-	<p class="sublinks"><a href="/help">help picking courses</a> &bull; <a href="/privacy">privacy</a></p>
+	<p class="sublinks"><a href="/help">additional help</a> &bull; <a href="/privacy">privacy</a></p>
 	<hr>
 	<div class="links">
-		<NavLink href="/saved" icon="bookmarks">Saved Classes</NavLink>
+		<NavLink href="/saved" icon="bookmarks">Your Saved Classes</NavLink>
 	</div>
 	<h3>Departments</h3>
 	<div class="links">
