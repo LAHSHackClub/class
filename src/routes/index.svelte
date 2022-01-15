@@ -27,7 +27,7 @@
 {#if classMatch(searchQuery).length > 0}
 <section>
   {#each classMatch(searchQuery) as c}
-  <Class c="{c}" cList="{classes}" />
+  <Class c="{c}" />
   {/each}
 </section>
 {:else}

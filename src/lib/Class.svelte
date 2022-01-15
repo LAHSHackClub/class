@@ -5,10 +5,8 @@
   import { popoverContent } from "../util/popover";
 
   export let c: any;
-  export let cList: any[];
   export let dept: string = "default";
   export let highlight: number = 0;
-
   $: isBookmarked = $bookmarks.some(b => b === c.id);
 
   const dispatch = createEventDispatcher();

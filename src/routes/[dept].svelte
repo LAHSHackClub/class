@@ -43,9 +43,8 @@
   <section>
     <h2>{level}</h2>
     {#each classesFromLevel(level) as c}
-    <Class
-      c="{c}" cList="{classes}" dept="{dept}"
-      highlight="{highlights[c.id]}" on:selected="{generateHighlight}" />
+    <Class on:selected="{generateHighlight}"
+      c="{c}" dept="{dept}" highlight="{highlights[c.id]}" />
     {/each}
   </section>
   {/each}
