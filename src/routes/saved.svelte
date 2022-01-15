@@ -33,7 +33,7 @@
   {/each}
 </section>
 {:else}
-<p>No classes found</p>
+<p>No classes found - double click a class to add it here!</p>
 {/if}
 
 <style lang="scss">

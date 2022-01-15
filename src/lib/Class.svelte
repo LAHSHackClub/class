@@ -1,6 +1,6 @@
 
 <script lang="ts">
-  import { bookmarks, addBookmark } from "../util/bookmarks";
+  import { bookmarks, toggleBookmark } from "../util/bookmarks";
   import { createEventDispatcher } from "svelte";
   import { popoverContent } from "../util/popover";
 
@@ -17,9 +17,9 @@
     dispatch("selected", { id: c.id });
   }
   function alerter() {
-    addBookmark(c.id);
+    const added = toggleBookmark(c.id);
     popoverContent.set({
-      message: "Saved " + c.Name,
+      message: (added ? "Saved " : "Removed ") + c.Name,
       icon: "bookmarkcheck"
     });
   }
