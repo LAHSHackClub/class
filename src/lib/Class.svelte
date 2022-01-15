@@ -34,11 +34,22 @@
       <svg><use xlink:href="/icon/bootstrap.svg#bookmarkcheck" /></svg>
       {/if}
     </h3>
-    <p>{c.Description}</p>
-    {#if prereqs.length > 0}
-    <p class="rr">
-      <b>RR:</b> {prereqs.map(p => p.Name).join(", ")}
-    </p>
+    <p class="desc">{c.Description}</p>
+    {#if c.Tags}
+    <div class="tags">
+      {#each c.Tags as t}
+      <span class="tag">{t.name}</span>
+      {/each}
+    </div>
+    {/if}
+    {#if c.Media}
+    <div class="media">
+      {#each c.Media as m}
+      <a href="{m.url}" target="_blank">
+        <img src="{m.url}" alt="{m.alt}">
+      </a>
+      {/each}
+    </div>
     {/if}
   </article>
 </label>
@@ -50,6 +61,11 @@
   input:checked + article {
     background-color: var(--selected);
     border-color: var(--selected);
+
+    .media a, .tags span {
+      background-color: transparent;
+      border-color: var(--text-secondary);
+    }
   }
 
   article {
@@ -96,14 +112,50 @@
         width: 18px;
       }
     }
+
     p {
       color: var(--text-secondary);
       font-size: 0.85em;
       margin-top: 5px;
       margin-bottom: 0;
+    }
 
-      &.rr {
-        font-size: 0.8em;
+    .media {
+      display: flex;
+      column-gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 10px;
+
+      a {
+        background-color: var(--bg-primary);
+        border: 1.5px solid var(--bg-primary);
+        border-radius: 5px;
+        display: grid;
+        place-items: center;
+        min-height: 50px;
+        min-width: 50px;
+      }
+
+      img {
+        border-radius: 5px;
+        max-height: 50px;
+        max-width: 50px;
+      }
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      margin-top: 10px;
+
+      span {
+        background-color: var(--bg-primary);
+        border: 1.5px solid transparent;
+        border-radius: 5px;
+        color: var(--text-secondary);
+        font-size: 0.7em;
+        margin-right: 5px;
+        padding: 3px 5px;
       }
     }
   }
