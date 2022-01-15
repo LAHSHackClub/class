@@ -10,7 +10,6 @@
   export let highlight: number = 0;
 
   $: isBookmarked = $bookmarks.some(b => b === c.id);
-  $: prereqs = c.Prerequisite ? c.Prerequisite.map(p => cList.find(c => c.id === p.id)) : [];
 
   const dispatch = createEventDispatcher();
   function selected() {
