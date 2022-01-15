@@ -81,6 +81,11 @@
 
     &.hl-1, &.hl-2, &.hl-3 {
       color: var(--text-primary);
+
+      .media a, .tags span {
+        background-color: transparent;
+        border-color: var(--text-secondary);
+      }
     }
     &.hl-1 {
       background-color: var(--prerequisite);
