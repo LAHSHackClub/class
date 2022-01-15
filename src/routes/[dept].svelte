@@ -14,6 +14,7 @@
 
 <script lang="ts">
   import Class from "$lib/Class.svelte";
+  import IconButton from "$lib/IconButton.svelte";
   import PathwayHeader from "$lib/PathwayHeader.svelte";
   import PathwayKey from "$lib/PathwayKey.svelte";
   import { generateHighlighter } from "../util/highlight";
@@ -33,6 +34,14 @@
       .filter(c => c.Level.name === level)
       .sort((a, b) => a.Name.localeCompare(b.Name));
   }
+
+  function scroll(dir: number) {
+    let el = document.querySelector(".pathway");
+    el.scrollBy({
+      left: dir * 100,
+      behavior: "smooth"
+    });
+  }
 </script>
 
 <PathwayHeader dept={dept} />
@@ -48,6 +57,10 @@
     {/each}
   </section>
   {/each}
+  <div class="controls">
+    <span><IconButton icon="arrow-left" on:click="{() => {scroll(-1)}}" /></span>
+    <span><IconButton icon="arrow-right" on:click="{() => {scroll(1)}}" /></span>
+  </div>
 </div>
 
 <style lang="scss">
@@ -62,6 +75,35 @@
     column-gap: 50px;
     padding-bottom: 50px;
     overflow-x: auto;
+    position: relative;
+
+    .controls {
+      border-radius: 5px;
+      color: var(--text-primary);
+      display: flex;
+      place-items: center;
+      column-gap: 5px;
+      padding: 5px 0;
+      position: fixed;
+      bottom: 30px;
+      right: 60px;
+      z-index: 5;
+      opacity: 0.5;
+      transition-duration: 0.2s;
+
+      > span {
+        background: var(--interactable-secondary);
+        border-radius: 5px;
+        transition-duration: 0.2s;
+      }
+      > span:hover {
+        background: var(--interactable-primary);
+      }
+
+      &:hover {
+        opacity: 1;
+      }
+    }
   }
 
   section {
