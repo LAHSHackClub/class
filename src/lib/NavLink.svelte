@@ -11,16 +11,16 @@
 
 <style lang="scss">
   a {
-    border: 2px solid var(--interactable-secondary);
-    border-radius: 5px;
+    border: 1.5px solid var(--interactable-secondary);
+    border-radius: 2px;
     color: var(--text-primary);
     display: flex;
     align-items: center;
     column-gap: 10px;
-    font-size: 0.8em;
+    font-size: 0.75em;
     text-decoration: none;
-    padding: 6px 20px;
-    transition-duration: 0.1s;
+    padding: 6px 15px;
+    transition-duration: 0.2s;
 
     &:hover {
       background-color: var(--interactable-primary);

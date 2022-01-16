@@ -29,11 +29,10 @@
 	<h3>Departments</h3>
 	<div class="links">
 		<NavLink href="/" icon="">All Classes</NavLink>
-		<NavLink href="/avid" icon="star">AVID</NavLink>
-		<NavLink href="/elective" icon="star">Elective</NavLink>
+		<NavLink href="/elective" icon="star">AVID & Elective</NavLink>
 		<NavLink href="/english" icon="journal">English</NavLink>
 		<NavLink href="/math" icon="calculator">Math</NavLink>
-		<NavLink href="/pe" icon="star">PE/Health & Athletics</NavLink>
+		<NavLink href="/pe" icon="star">PE, Health & Athletics</NavLink>
 		<NavLink href="/perf-arts" icon="star">Performing Arts</NavLink>
 		<NavLink href="/science" icon="lightbulb">Science</NavLink>
 		<NavLink href="/social-studies" icon="star">Social Studies</NavLink>
@@ -90,7 +89,7 @@
 	.links {
 		display: flex;
 		flex-direction: column;
-		row-gap: 10px;
+		row-gap: 5px;
 		margin-top: 15px;
 	}
 </style>
