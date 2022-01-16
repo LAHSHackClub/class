@@ -52,6 +52,13 @@
 		color: var(--text-link);
 	}
 
+	.brand {
+		background: linear-gradient(135deg, #aef, #03f);
+		background-clip: text;
+		color: transparent;
+		margin: 0 2px;
+	}
+
 	.split {
 		background-color: var(--bg-secondary);
 		display: flex;

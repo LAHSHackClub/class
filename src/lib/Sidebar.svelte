@@ -18,7 +18,7 @@
 {:else}
 <nav class="container">
 	<div class="menu">
-		<h2>LAHS Classes</h2>
+		<h2>classes<span class="brand">.+</span></h2>
 		<IconButton icon="menu" on:click="{click}" />
 	</div>
 	<p class="sublinks"><a href="/help">additional help</a> &bull; <a href="/privacy">privacy</a></p>
