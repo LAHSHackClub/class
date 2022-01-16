@@ -16,7 +16,7 @@
 <div class="cover" transition:fade on:click="{closeSlideover}">
   <section class="slideover" transition:fly="{{duration:600,x: -320}}" on:click="{stopProp}">
     <span class="close">
-      <IconButton icon="play" on:click="{closeSlideover}" />
+      <IconButton icon="x" on:click="{closeSlideover}" />
     </span>
     <div class="content">
       <svelte:component this="{$slideoverContent}"></svelte:component>

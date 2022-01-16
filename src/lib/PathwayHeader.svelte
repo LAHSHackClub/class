@@ -34,7 +34,7 @@
       text-transform: uppercase;
     }
 
-    a, button {
+    button {
       background-color: var(--interactable-secondary);
       border-radius: 5px;
       border: none;

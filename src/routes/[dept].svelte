@@ -17,11 +17,15 @@
   import IconButton from "$lib/IconButton.svelte";
   import PathwayHeader from "$lib/PathwayHeader.svelte";
   import PathwayKey from "$lib/PathwayKey.svelte";
+  import { currentDepartment } from "../util/department";
   import { generateHighlighter } from "../util/highlight";
   
   export let classes: any[];
   export let levels: string[];
   export let dept: string;
+
+  // Maps current dept to dept parameter
+  $: $currentDepartment = dept;
 
   // Enables dynamic highlighting of classes
   let highlights: { [id: string]: number } = {};
