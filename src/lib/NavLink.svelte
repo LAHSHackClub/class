@@ -32,5 +32,9 @@
       height: 16px;
       width: 16px;
     }
+
+    @media (min-height: 1000px) {
+      padding: 8px 15px;
+    }
   }
 </style>

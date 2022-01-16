@@ -89,7 +89,11 @@
 	.links {
 		display: flex;
 		flex-direction: column;
-		row-gap: 5px;
+		row-gap: 8px;
 		margin-top: 15px;
+
+		@media (min-height: 1000px) {
+			row-gap: 10px;
+		}
 	}
 </style>
