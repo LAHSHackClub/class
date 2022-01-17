@@ -20,9 +20,6 @@
 </div>
 
 <style lang="scss">
-  .key-wrapper {
-  }
-
   .instructions {
     background-color: var(--bg-secondary);
     border-radius: 5px;
