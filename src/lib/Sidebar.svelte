@@ -53,14 +53,15 @@
 			border-bottom-right-radius: 15px;
 			display: grid;
 			place-items: center;
-			padding-top: 32px;
+			padding-top: 21px;
 			height: 60px;
 		}
 	}
 
 	.container {
-		width: 260px;
-		padding: 30px;
+		width: 230px;
+		padding: 20px 25px;
+		padding-bottom: 40px;
 
 		.menu {
 			display: flex;
@@ -76,7 +77,7 @@
 	}
 
 	h3 {
-		margin-top: 30px;
+		margin-top: 20px;
 		margin-bottom: 10px;
 	}
 

@@ -27,6 +27,7 @@
     margin-bottom: 15px;
 
     h1 {
+      font-size: 1.5rem;
       flex: 1 1;
     }
 

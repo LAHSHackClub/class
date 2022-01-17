@@ -1,6 +1,6 @@
 
 <script lang="ts" context="module">
-  import { getDatabase } from "../util/database";
+  import { getDatabase } from "../../util/database";
   
   export async function load({ params }) {
     const { ok, data } = await getDatabase(params.dept);
@@ -17,8 +17,8 @@
   import IconButton from "$lib/IconButton.svelte";
   import PathwayHeader from "$lib/PathwayHeader.svelte";
   import PathwayKey from "$lib/PathwayKey.svelte";
-  import { currentDepartment } from "../util/department";
-  import { generateHighlighter } from "../util/highlight";
+  import { currentDepartment } from "../../util/department";
+  import { generateHighlighter } from "../../util/highlight";
   
   export let classes: any[];
   export let levels: string[];
@@ -48,7 +48,7 @@
   }
 </script>
 
-<PathwayHeader dept={dept} />
+<PathwayHeader dept="{dept}" />
 <PathwayKey />
 <hr>
 <div class="pathway">
@@ -77,7 +77,7 @@
 
   .pathway {
     display: flex;
-    column-gap: 30px;
+    column-gap: 20px;
     min-height: 300px;
     padding-bottom: 50px;
     overflow-x: auto;
@@ -92,7 +92,7 @@
       padding: 5px 0;
       position: fixed;
       bottom: 30px;
-      right: 60px;
+      right: 40px;
       z-index: 5;
       opacity: 0.5;
       transition-duration: 0.2s;

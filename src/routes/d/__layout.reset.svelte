@@ -1,22 +1,13 @@
 
 <script lang="ts">
 	import Popover from "$lib/Popover.svelte";
-	import Sidebar from "$lib/Sidebar.svelte";
 	import Slideover from "$lib/Slideover.svelte";
-
-	let isOpen = false;
-	function toggle() {
-		isOpen = !isOpen;
-	}
 </script>
 
-<div class="split" class:full="{isOpen}">
+<div class="fs">
 	<Popover />
 	<Slideover />
-	<section class="sidebar"><Sidebar on:toggle="{toggle}" /></section>
-	<section class="page" class:full="{isOpen}">
-		<div><slot /></div>
-	</section>
+	<div><slot /></div>
 </div>
 
 <style lang="scss" global>
@@ -59,26 +50,14 @@
 		margin: 0 2px;
 	}
 
-	.split {
-		background-color: var(--bg-secondary);
-		display: flex;
-		width: 100%;
-		min-height: 100vh;
-	}
-
-	.sidebar {
-		display: flex;
-		justify-content: flex-end;
-	}
-
-	.page {
+	.fs {
 		box-sizing: border-box;
 		display: flex;
 		justify-content: flex-start;
 		background-color: var(--bg-primary);
-		border-top-left-radius: 25px;
 		flex: 1 1;
 		max-height: 100vh;
+		height: 100vh;
 		overflow-y: auto;
 		padding: 20px 40px;
 		position: sticky;
@@ -86,10 +65,6 @@
 
 		> div {
 			width: 100%;
-			max-width: calc(100vw - 360px);
-		}
-		&.full > div {
-			max-width: calc(100vw - 140px);
 		}
 	}
 </style>
