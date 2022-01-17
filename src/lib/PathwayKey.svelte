@@ -6,14 +6,14 @@
 
 <div class="key-wrapper">
   {#if !displayInstructions}
-  <ul class="key" transition:fade="{{duration:200}}">
+  <ul class="key" in:fade="{{duration:200}}">
     <li data-color="selected">Selected Class</li>
     <li data-color="prerequisite">Recommended Before</li>
     <li data-color="future">Recommended After</li>
     <li data-color="future-border">Available After</li>
   </ul>
   {:else}
-  <p class="instructions">
+  <p class="instructions" in:fade="{{duration:200}}">
     💡 Click on a class to see future options and recommendations. Double click a class to save it!
   </p>
   {/if}
