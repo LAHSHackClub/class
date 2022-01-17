@@ -134,14 +134,14 @@
         border-radius: 5px;
         display: grid;
         place-items: center;
-        min-height: 50px;
-        min-width: 50px;
+        min-height: 42px;
+        min-width: 42px;
       }
 
       img {
         border-radius: 5px;
-        max-height: 50px;
-        max-width: 50px;
+        max-height: 42px;
+        max-width: 42px;
       }
     }
 
