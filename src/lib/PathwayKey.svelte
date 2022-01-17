@@ -1,7 +1,7 @@
 
 <script lang="ts">
   import { fade } from "svelte/transition";
-  export let displayInstructions = true;
+  export let displayInstructions = false;
 </script>
 
 <div class="key-wrapper">
