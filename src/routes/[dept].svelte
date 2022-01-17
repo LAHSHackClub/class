@@ -6,7 +6,6 @@
     const { ok, data } = await getDatabase(params.dept);
     if (!ok) return { status: 500, error: new Error(`Server Error`) };
     const uniqueLevels = data.map(l => l.Level).filter((v, i, a) => a.findIndex(x => x.name === v.name) === i).sort((a, b) => a.name.localeCompare(b.name));
-    console.log(uniqueLevels);
 		return {
       props: { classes: data, levels: uniqueLevels, dept: params.dept }
     };

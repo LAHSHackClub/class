@@ -27,6 +27,19 @@ function getDatabaseID(pathway: string) {
   }
 }
 
+export async function getDepartmentExtras(dept: string) {
+  if (!dept) return { ok: false, data: null };
+  const url = `https://db.lahs.club/cache/517a8232b10d4bd9820e08bf52cfc64d.json`;
+  const res = await fetch(url);
+  const ok = res.ok;
+  if (!ok) return { ok: false, data: null };
+  else {
+    const data = await res.json();
+    const deptExtras = data.find(d => d.Name.toLowerCase() == dept.toLowerCase());
+    return { ok: true, data: deptExtras };
+  }
+}
+
 export async function getDatabase(pathway: string) {
   if (!pathway) return { ok: false, data: null };
   const url = `https://db.lahs.club/cache/${getDatabaseID(pathway)}.json`;

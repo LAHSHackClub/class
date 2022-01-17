@@ -42,12 +42,14 @@
     top: 0;
     left: 0;
     bottom: 0;
+    line-height: 1.8;
     padding: 30px 10px;
     width: calc(380px + 15vw);
 
     .content {
-      width: 380px;
+      width: 370px;
       margin-left: auto;
+      padding-right: 40px;
     }
 
     .close {
