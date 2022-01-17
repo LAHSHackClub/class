@@ -9,6 +9,9 @@
   <p><a href="{m.url}" target="_blank">{m.name}</a></p>
 {/each}
 <p class="desc">{$departmentExtraInfo.Description}</p>
+{#if $departmentExtraInfo.ApprovedBy}
+  <p>Approved by: {$departmentExtraInfo.ApprovedBy}</p>
+{/if}
 {#each $departmentExtraInfo.Status as s}
   <p class="status">{s.name}</p>
 {/each}
