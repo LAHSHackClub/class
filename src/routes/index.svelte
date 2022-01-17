@@ -42,7 +42,7 @@
     box-sizing: border-box;
     color: var(--text-secondary);
     font-family: inherit;
-    padding: 10px 20px;
+    padding: 8px 20px;
     width: 100%;
 
     &:focus {
@@ -53,7 +53,8 @@
   hr {
     border: none;
     border-bottom: 3px solid var(--bg-secondary);
-    margin: 25px 0;
+    margin: 12px 0;
+    margin-bottom: 20px;
   }
 
   section {
