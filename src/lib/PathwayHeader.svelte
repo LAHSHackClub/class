@@ -10,7 +10,7 @@
 </script>
 
 <header>
-  <h1><span>{dept}</span></h1>
+  <h1><span>{dept.replace("-", " ")}</span></h1>
   <button on:click="{openSlideover}">
     <svg><use xlink:href="/icon/bootstrap.svg#text" /></svg>
     <svg><use xlink:href="/icon/bootstrap.svg#play" /></svg>
