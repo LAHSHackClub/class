@@ -5,7 +5,8 @@
   export async function load({ params }) {
     const { ok, data } = await getDatabase(params.dept);
     if (!ok) return { status: 500, error: new Error(`Server Error`) };
-    const uniqueLevels = data.map(i => i.Level.name).filter((v, i, a) => a.indexOf(v) === i).sort();
+    const uniqueLevels = data.map(l => l.Level).filter((v, i, a) => a.findIndex(x => x.name === v.name) === i).sort((a, b) => a.name.localeCompare(b.name));
+    console.log(uniqueLevels);
 		return {
       props: { classes: data, levels: uniqueLevels, dept: params.dept }
     };
@@ -21,7 +22,7 @@
   import { generateHighlighter } from "../util/highlight";
   
   export let classes: any[];
-  export let levels: string[];
+  export let levels: any[];
   export let dept: string;
 
   // Maps current dept to dept parameter
@@ -54,8 +55,8 @@
 <div class="pathway">
   {#each levels as level}
   <section>
-    <h2>{level}</h2>
-    {#each classesFromLevel(level) as c}
+    <h2>{level.name}</h2>
+    {#each classesFromLevel(level.name) as c}
     <Class on:selected="{generateHighlight}"
       c="{c}" dept="{dept}" highlight="{highlights[c.id]}" />
     {/each}
@@ -71,7 +72,7 @@
   hr {
     border: none;
     border-bottom: 3px solid var(--bg-secondary);
-    margin: 25px 0;
+    margin: 20px 0;
     margin-bottom: 15px;
   }
 
@@ -121,7 +122,15 @@
     max-width: 400px;
 
     h2 {
-      font-size: 1rem;
+      background-color: var(--bg-secondary);
+      border-radius: 5px;
+      font-size: 0.85rem;
+      margin-top: 6px;
+      margin-bottom: 0;
+      padding: 5px 20px;
+      text-transform: uppercase;
+      user-select: none;
+      -webkit-user-select: none;
     }
   }
 </style>

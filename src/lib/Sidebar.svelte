@@ -59,7 +59,7 @@
 	}
 
 	.container {
-		width: 230px;
+		width: 240px;
 		padding: 20px 25px;
 		padding-bottom: 40px;
 
@@ -67,31 +67,33 @@
 			display: flex;
 			justify-content: space-between;
 			align-items: center;
-			margin-bottom: 15px;
 		}
 	}
 
 	.sublinks {
 		font-size: 0.8em;
-		margin-top: 0;
+		margin-top: 5px;
+		margin-bottom: 20px;
 	}
 
 	h3 {
+		font-size: 1rem;
 		margin-top: 20px;
-		margin-bottom: 10px;
+		margin-bottom: 6px;
 	}
 
   hr {
     border: none;
     border-bottom: 3px solid var(--bg-primary);
-    margin: 25px 0;
+    margin: 20px 0;
+		margin-top: 15px;
   }
 	
 	.links {
 		display: flex;
 		flex-direction: column;
 		row-gap: 8px;
-		margin-top: 15px;
+		margin-top: 10px;
 
 		@media (min-height: 1000px) {
 			row-gap: 10px;

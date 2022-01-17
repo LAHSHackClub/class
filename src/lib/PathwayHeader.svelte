@@ -24,7 +24,7 @@
     display: flex;
     align-items: center;
     column-gap: 15px;
-    margin-bottom: 15px;
+    margin-bottom: 5px;
 
     h1 {
       font-size: 1.5rem;

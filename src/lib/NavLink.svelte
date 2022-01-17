@@ -12,7 +12,7 @@
 <style lang="scss">
   a {
     border: 1.5px solid var(--interactable-secondary);
-    border-radius: 2px;
+    border-radius: 6px;
     color: var(--text-primary);
     display: flex;
     align-items: center;
