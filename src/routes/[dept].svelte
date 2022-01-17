@@ -20,6 +20,7 @@
   import PathwayKey from "$lib/PathwayKey.svelte";
   import { currentDepartment } from "../util/department";
   import { generateHighlighter } from "../util/highlight";
+  import { onMount } from "svelte";
   
   export let classes: any[];
   export let levels: any[];
@@ -27,6 +28,9 @@
 
   // Maps current dept to dept parameter
   $: $currentDepartment = dept;
+  onMount(() => {
+    currentDepartment.subscribe(() => highlights = {});
+  });
 
   // Enables dynamic highlighting of classes
   let highlights: { [id: string]: number } = {};
@@ -50,7 +54,7 @@
 </script>
 
 <PathwayHeader dept={dept} />
-<PathwayKey />
+<PathwayKey displayInstructions="{Object.keys(highlights).length === 0}" />
 <hr>
 <div class="pathway">
   {#each levels as level}
@@ -93,7 +97,7 @@
       padding: 5px 0;
       position: fixed;
       bottom: 30px;
-      right: 60px;
+      right: 40px;
       z-index: 5;
       opacity: 0.5;
       transition-duration: 0.2s;

@@ -1,22 +1,51 @@
 
-<ul class="key">
-  <li data-color="selected">Selected Class</li>
-  <li data-color="prerequisite">Recommended Before</li>
-  <li data-color="future">Recommended After</li>
-  <li data-color="future-border">Available After</li>
-</ul>
+<script lang="ts">
+  import { fade } from "svelte/transition";
+  export let displayInstructions = true;
+</script>
+
+<div class="key-wrapper">
+  {#if !displayInstructions}
+  <ul class="key" transition:fade="{{duration:200}}">
+    <li data-color="selected">Selected Class</li>
+    <li data-color="prerequisite">Recommended Before</li>
+    <li data-color="future">Recommended After</li>
+    <li data-color="future-border">Available After</li>
+  </ul>
+  {:else}
+  <p class="instructions">
+    💡 Click on a class to see future options and recommendations. Double click a class to save it!
+  </p>
+  {/if}
+</div>
 
 <style lang="scss">
+  .key-wrapper {
+  }
+
+  .instructions {
+    background-color: var(--bg-secondary);
+    border-radius: 5px;
+    box-sizing: border-box;
+    color: var(--text-secondary);
+    font-size: 0.7em;
+    margin: -4.5px 0;
+    padding: 6px 20px;
+    width: 100%;
+  }
+
   .key {
     color: var(--text-secondary);
     display: flex;
-    align-items: center;
     justify-content: space-between;
-    column-gap: 15px;
+    column-gap: 45px;
+    row-gap: 10px;
+    flex-wrap: wrap;
     font-size: 0.8rem;
     list-style: none;
     margin: 0;
     padding: 0;
+    width: 100%;
 
     li {
       display: flex;

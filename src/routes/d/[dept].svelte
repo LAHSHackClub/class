@@ -92,7 +92,7 @@
       padding: 5px 0;
       position: fixed;
       bottom: 30px;
-      right: 60px;
+      right: 40px;
       z-index: 5;
       opacity: 0.5;
       transition-duration: 0.2s;
