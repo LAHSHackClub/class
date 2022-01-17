@@ -78,7 +78,7 @@
 
   .pathway {
     display: flex;
-    column-gap: 30px;
+    column-gap: 20px;
     min-height: 300px;
     padding-bottom: 50px;
     overflow-x: auto;

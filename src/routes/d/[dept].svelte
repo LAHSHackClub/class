@@ -71,7 +71,7 @@
   hr {
     border: none;
     border-bottom: 3px solid var(--bg-secondary);
-    margin: 25px 0;
+    margin: 20px 0;
     margin-bottom: 15px;
   }
 
@@ -92,7 +92,7 @@
       padding: 5px 0;
       position: fixed;
       bottom: 30px;
-      right: 40px;
+      right: 60px;
       z-index: 5;
       opacity: 0.5;
       transition-duration: 0.2s;
@@ -121,7 +121,15 @@
     max-width: 400px;
 
     h2 {
-      font-size: 1rem;
+      background-color: var(--bg-secondary);
+      border-radius: 5px;
+      font-size: 0.85rem;
+      margin-top: 6px;
+      margin-bottom: 0;
+      padding: 5px 20px;
+      text-transform: uppercase;
+      user-select: none;
+      -webkit-user-select: none;
     }
   }
 </style>
