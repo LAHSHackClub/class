@@ -55,6 +55,7 @@
 	.brand {
 		background: linear-gradient(to bottom, #aef, #03f);
 		background-clip: text;
+		-webkit-background-clip: text;
 		color: transparent;
 		margin: 0 2px;
 	}
