@@ -1,4 +1,11 @@
 
+<script lang="ts">
+  import { analytics } from "../util/analytics";
+  import { onMount } from "svelte";
+
+  onMount(async () => await analytics.increment("info"));
+</script>
+
 <h1>Privacy Policy</h1>
 <p>This privacy policy and data usage report is effective as of January 10, 2022.</p>
 <hr>

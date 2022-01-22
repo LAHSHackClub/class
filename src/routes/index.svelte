@@ -11,6 +11,8 @@
 
 <script lang="ts">
   import Class from "$lib/Class.svelte";
+  import { analytics } from "../util/analytics";
+  import { onMount } from "svelte";
   export let classes: any[];
 
   let searchQuery: string = "";
@@ -19,6 +21,8 @@
       .filter(x => x.Name.toLowerCase().indexOf(query.toLowerCase()) > -1)
       .sort((a, b) => a.Name.localeCompare(b.Name));
   }
+
+  onMount(async () => await analytics.increment());
 </script>
 
 <h1>All Classes</h1>

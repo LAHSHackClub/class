@@ -1,4 +1,11 @@
 
+<script lang="ts">
+  import { analytics } from "../util/analytics";
+  import { onMount } from "svelte";
+
+  onMount(async () => await analytics.increment("info"));
+</script>
+
 <h1>Verified Information Tags</h1>
 <p>VITs ensure the integrity of information presented to you - find them at the bottom of each department's pathway overview.</p>
 <hr>

@@ -1,4 +1,11 @@
 
+<script lang="ts">
+  import { analytics } from "../util/analytics";
+  import { onMount } from "svelte";
+
+  onMount(async () => await analytics.increment("info"));
+</script>
+
 <h1>Picking Courses</h1>
 <p>. . .</p>
 <hr>
