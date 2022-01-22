@@ -14,7 +14,7 @@
     dispatch("selected", { id: c.id });
   }
   function alerter() {
-    const added = toggleBookmark(c.id);
+    const added = toggleBookmark(c.id, window.localStorage);
     popoverContent.set({
       message: (added ? "Saved " : "Removed ") + c.Name,
       icon: "bookmarkcheck"

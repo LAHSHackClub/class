@@ -3,7 +3,7 @@ import { writable } from "svelte/store";
 
 export const bookmarks = writable<string[]>([]);
 
-export function toggleBookmark(id: string) {
+export function toggleBookmark(id: string, ls: Storage) {
   let added: boolean; // false = removed
   bookmarks.update(b => {
     if (b.includes(id)) {
@@ -14,7 +14,11 @@ export function toggleBookmark(id: string) {
       b.push(id);
       added = true;
     }
+
+    ls.setItem("bookmarks", JSON.stringify(b));
+    
     return b;
   });
+
   return added;
 }

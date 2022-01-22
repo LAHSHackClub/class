@@ -3,6 +3,10 @@
 	import Popover from "$lib/Popover.svelte";
 	import Sidebar from "$lib/Sidebar.svelte";
 	import Slideover from "$lib/Slideover.svelte";
+	import { bookmarks } from "../util/bookmarks";
+	import { onMount } from "svelte";
+
+	onMount(() => bookmarks.set(JSON.parse(window.localStorage.getItem("bookmarks") || "[]")));
 
 	let isOpen = false;
 	function toggle() {
