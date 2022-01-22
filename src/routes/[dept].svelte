@@ -17,7 +17,7 @@
   import IconButton from "$lib/IconButton.svelte";
   import PathwayHeader from "$lib/PathwayHeader.svelte";
   import PathwayKey from "$lib/PathwayKey.svelte";
-  import { currentDepartment } from "../util/department";
+  import { currentDepartment, departmentExtraInfo } from "../util/department";
   import { generateHighlighter } from "../util/highlight";
   import { onMount } from "svelte";
   
@@ -34,7 +34,8 @@
   // Enables dynamic highlighting of classes
   let highlights: { [id: string]: number } = {};
   function generateHighlight(e: CustomEvent) {
-    highlights = generateHighlighter(classes, e.detail.id)
+    const implicitEnabled = $departmentExtraInfo.EnableImplicitJump.name === "True";
+    highlights = generateHighlighter(classes, e.detail.id, implicitEnabled)
   }
 
   function classesFromLevel(level: string) {

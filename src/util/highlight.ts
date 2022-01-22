@@ -1,5 +1,5 @@
 
-export function generateHighlighter(classes: any[], targetId: string) {
+export function generateHighlighter(classes: any[], targetId: string, implicitEnabled: boolean = true) {
   const highlights = {};
   const x = classes.find(c => c.id === targetId);
 
@@ -17,11 +17,13 @@ export function generateHighlighter(classes: any[], targetId: string) {
   });
 
   // Highlight shared prereq classes (sidesteps)
-  classes.filter(c => {
-    if (c.Prerequisite?.length < 1 || x.Prerequisite?.length < 1) return false;
-    if (c.Prerequisite.every(l => x.Prerequisite.some(p => p.id === l.id)))
-      highlights[c.id] = 3;
-  });
+  if (implicitEnabled) {
+    classes.filter(c => {
+      if (c.Prerequisite?.length < 1 || x.Prerequisite?.length < 1) return false;
+      if (c.Prerequisite.every(l => x.Prerequisite.some(p => p.id === l.id)))
+        highlights[c.id] = 3;
+    });
+  }
 
   // Highlight all prereq classes
   if (x.Prerequisite?.length > 0)
