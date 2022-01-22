@@ -3,9 +3,11 @@
   import { getDatabase } from "../util/database";
   
   export async function load({ params }) {
+    // Get dept data and parse it
     const { ok, data } = await getDatabase(params.dept);
     if (!ok) return { status: 500, error: new Error(`Server Error`) };
     const uniqueLevels = data.map(l => l.Level).filter((v, i, a) => a.findIndex(x => x.name === v.name) === i).sort((a, b) => a.name.localeCompare(b.name));
+
 		return {
       props: { classes: data, levels: uniqueLevels, dept: params.dept }
     };
@@ -17,9 +19,10 @@
   import IconButton from "$lib/IconButton.svelte";
   import PathwayHeader from "$lib/PathwayHeader.svelte";
   import PathwayKey from "$lib/PathwayKey.svelte";
+  import { analytics } from "../util/analytics";
   import { currentDepartment, departmentExtraInfo } from "../util/department";
   import { generateHighlighter } from "../util/highlight";
-  import { onMount } from "svelte";
+  import { onMount, onDestroy } from "svelte";
   
   export let classes: any[];
   export let levels: any[];
@@ -27,9 +30,14 @@
 
   // Maps current dept to dept parameter
   $: $currentDepartment = dept;
+  let deptUnsub: any;
   onMount(() => {
-    currentDepartment.subscribe(() => highlights = {});
+    deptUnsub = currentDepartment.subscribe(async d => {
+      highlights = {};
+      await analytics.increment(d);
+    });
   });
+  onDestroy(() => deptUnsub ? deptUnsub() : null);
 
   // Enables dynamic highlighting of classes
   let highlights: { [id: string]: number } = {};

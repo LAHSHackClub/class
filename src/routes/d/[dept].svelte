@@ -17,15 +17,25 @@
   import IconButton from "$lib/IconButton.svelte";
   import PathwayHeader from "$lib/PathwayHeader.svelte";
   import PathwayKey from "$lib/PathwayKey.svelte";
+  import { analytics } from "../../util/analytics";
   import { currentDepartment, departmentExtraInfo } from "../../util/department";
   import { generateHighlighter } from "../../util/highlight";
+  import { onMount, onDestroy } from "svelte";
   
   export let classes: any[];
-  export let levels: string[];
+  export let levels: any[];
   export let dept: string;
 
   // Maps current dept to dept parameter
   $: $currentDepartment = dept;
+  let deptUnsub: any;
+  onMount(() => {
+    deptUnsub = currentDepartment.subscribe(async d => {
+      highlights = {};
+      await analytics.increment(d);
+    });
+  });
+  onDestroy(() => deptUnsub ? deptUnsub() : null);
 
   // Enables dynamic highlighting of classes
   let highlights: { [id: string]: number } = {};
