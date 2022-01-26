@@ -32,13 +32,13 @@
 		<NavLink href="/elective" icon="star">AVID & Elective</NavLink>
 		<NavLink href="/english" icon="journal">English</NavLink>
 		<NavLink href="/math" icon="calculator">Math</NavLink>
-		<NavLink href="/athletics" icon="star">PE, Health & Athletics</NavLink>
-		<NavLink href="/performing-arts" icon="star">Performing Arts</NavLink>
+		<NavLink href="/athletics" icon="activity">PE, Health & Athletics</NavLink>
+		<NavLink href="/performing-arts" icon="camera">Performing Arts</NavLink>
 		<NavLink href="/science" icon="lightbulb">Science</NavLink>
-		<NavLink href="/social-studies" icon="star">Social Studies</NavLink>
-		<NavLink href="/ted" icon="star">TED</NavLink>
+		<NavLink href="/social-studies" icon="people">Social Studies</NavLink>
+		<NavLink href="/ted" icon="laptop">TED</NavLink>
 		<NavLink href="/visual-arts" icon="brush">Visual Arts</NavLink>
-		<NavLink href="/world-language" icon="star">World Language</NavLink>
+		<NavLink href="/world-language" icon="translate">World Language</NavLink>
 	</div>
 </nav>
 {/if}
